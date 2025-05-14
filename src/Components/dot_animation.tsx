@@ -14,6 +14,7 @@ type Particle  = {
     vx: number
     vy: number
     color: string
+    colorValue: string
     radius: number
 }
 export default function DotAnimation({count, velocity, stopDistance, mouseFadeDistance} : Props) {
@@ -34,18 +35,19 @@ export default function DotAnimation({count, velocity, stopDistance, mouseFadeDi
         if (!ctx) return;
 
         for (let i = 0; i < count; i++) {
-
+            const color = Math.random() < 0.9 ? "blue":"red"
             particles.push({
                 id: i,
                 x: Math.random() * boundaries[0],
                 y: Math.random() * boundaries[1],
                 vx: (Math.random() * velocity) - (velocity / 2) + (Math.random() < 0.5 ? 1:-1),
                 vy: (Math.random() * velocity) - (velocity / 2) + (Math.random()  < 0.5 ? 1:-1),
-                color: Math.random() < 0.9 ? "#16a0ff":"#fd1818",
+                color: color,
+                colorValue: color == "blue"? "rgba(0,0,255,.5)" :"rgba(255,0,0,.5)",
                 radius: 4
             })
             const particle = particles[particles.length - 1];
-            ctx.fillStyle = particle.color;
+            ctx.fillStyle = particle.colorValue;
             ctx.beginPath();
             ctx.arc(particle.x,particle.y, particle.radius,0, Math.PI * 2);
             ctx.fill();
@@ -57,7 +59,8 @@ export default function DotAnimation({count, velocity, stopDistance, mouseFadeDi
             y: 0,
             vx: 0,
             vy: 0,
-            color: Math.random() < 0.9 ? "#16a0ff":"#fd1818",
+            color: Math.random() < 0.9 ? "blue":"red",
+            colorValue: "rgba(0,0,0,0)",
             radius: 4
         });
 
