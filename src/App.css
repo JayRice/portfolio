@@ -1,43 +1,49 @@
-#root {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
+@import "tailwindcss";
+@import 'tailwindcss-animated';
+
+
+body{
+  overflow-x: hidden;
+}
+#root {
+  color: white;
   margin: 0 auto;
   padding:  0;
   text-align: center;
-  overflow-x: hidden;
+  font-family: montserrat, Arial;
+  font-weight: lighter;
+
+}
+#fixed-canvas{
+  position: fixed;
+  z-index: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+@theme {
+  --color-prim:  #74ABFF;
+  --color-sec: #8c051e;
+  --color-background: #171515;
+  --color-navbar: #1e1b1b;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  --color-project: #333030;
+  --color-project-light: #3d3a3a;
+}
+@layer components {
+  .project {
+    @apply relative
   }
-  to {
-    transform: rotate(360deg);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: montserrat, sans-serif;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
-.card {
-  padding: 2em;
 }
+@layer base {
 
-.read-the-docs {
-  color: #888;
+
+}
+@utility flex-center {
+  @apply flex justify-center items-center ;
 }
