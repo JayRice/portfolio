@@ -5,10 +5,20 @@ import './App.css'
 import DotAnimation from './Components/dot_animation.tsx'
 import SkillBlock from "./Components/skill_block.tsx";
 import Project from "./Components/project.tsx";
+import Form from "./Components/form.tsx";
 import './index.css'
 
 function App() {
 
+    function sendToUrl(url: string){
+        window.location.href = url;
+    }
+    function scrollToSection(id: string) {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
   return (
       <div className={"bg-background"}>
 
@@ -18,12 +28,14 @@ function App() {
         <div className={"flex gap-6 flex-col relative w-[100vw] h-[100vh] justify-center items-center z-20 "}>
           <h1 className={"text-6xl animate-fade-left max-sm:text-3xl "}>Hello, I'm <span className={"text-prim "}>Jayden</span></h1>
             <h2 className={"text-6xl animate-fade-right animate-delay-[1s]  max-sm:text-2xl"}>An AI Enchanced web developer.</h2>
-            <button className={"flex cursor-pointer items-center gap-2 border-2  max-sm:text-xl animate-fade-up border-prim p-4 text-2xl mt-4 hover:bg-prim animate-delay-[2s]"}> View my work <ChevronDown className={"w-8 h-8"}/></button>
+            <button className={"flex cursor-pointer items-center gap-2 border-2  max-sm:text-xl animate-fade-up border-prim p-4 text-2xl mt-4 hover:bg-prim animate-delay-[2s]"} onClick={() => {
+                scrollToSection("about")
+            }}> View my work <ChevronDown className={"w-8 h-8"}/> </button>
         </div>
           <nav className={"max-lg:justify-center max-sm:p-10 max-sm:text-xl sticky top-0 bg-navbar shadow-2xl text-2xl items-center gap-10 bg-background-400  flex flex-row justify-end bg-prim-500 h-20 z-30 min-lg:pr-40"}>
-              <a href="#about" className={"hover:text-prim"}>About me</a>
-              <a href="#projects" className={"hover:text-prim"}>Projects</a>
-              <a href="#contact" className={"hover:text-prim"}>Contact me</a>
+              <a onClick={() => {scrollToSection("about")}} className={"hover:text-prim"}>About me</a>
+              <a onClick={() => {scrollToSection("projects")}} className={"hover:text-prim"}>Projects</a>
+              <a onClick={() => {scrollToSection("contact")}}  className={"hover:text-prim"}>Contact me</a>
 
           </nav>
 
@@ -38,7 +50,7 @@ function App() {
 
                       <div className={"flex justify-around items-center flex-col-reverse basis-1/2 max-w-1/2 grow-0 shrink-0 h-[100%] w-[100%] text-left"}>
 
-                          <p className={"relative basis-1/2 shrink-0 grow-0 lg:text-3xl md:text-xl  font-light bottom-[3%] "}>
+                          <p className={"relative basis-1/2 shrink-0 grow-0 lg:text-3xl md:text-xl text-xl  font-light bottom-[3%] "}>
                               I've been coding since I was 10, and the ability to bring ideas to life through code has always inspired me. Now at 18, I'm fully committed to Web and App development, building fast, responsive experiences from the ground up.
                               I use modern AI coding tools like Bolt.new to accelerate my workflow and explore creative solutions faster—while making sure I understand and refine every line. Join me on the journey to craft the next generation of web experiences.
                           </p>
@@ -96,16 +108,32 @@ function App() {
               <h1 className={"relative text-6xl border-t-2 border-t-sec inline"}>  Projects </h1>
 
               <div className={"w-full h-full"}>
-                  <Project name={"PwnPrep"} imgSource={"./images/javascript.png"} learnUrl={""} liveURL={""} status={"In development"}/>
-                  <Project name={"DevMesa"} imgSource={"./images/javascript.png"} learnUrl={""} liveURL={""} status={"In development"} className={"mt-10"}/>
+                  <Project name={"PwnPrep"} imgSources={["./images/projects/pwnprep1", "./images/projects/pwnprep2", "./images/projects/pwnprep3"]} learnUrl={""} liveURL={""} status={"development"} className={"mt-20"}/>
+                  <Project name={"DevMesa"} imgSources={["./images/projects/devmesa1", "./images/projects/devmesa2"]} learnUrl={""} liveURL={""} status={"hold"} className={"mt-20"}/>
+
               </div>
 
           </div>
 
-          <div id="contact" className={"relative w-[100vw] h-[100vh] flex justify-center mt-4"}>
-              <h1 className={"text-7xl border-t-2 border-t-sec"}>  Contact me </h1>
+          <div id="contact" className={"relative w-full h-full inline-block flex-row justify-center text-center  mt-20   "}>
+              <h1 className={"relative text-6xl border-t-2 border-t-sec inline"}>  Contact me </h1>
+              <div className={"flex justify-center w-100vw h-full "}>
+                  <Form className={"max-lg:w-full "}></Form>
+              </div>
 
           </div>
+
+           <footer className={"w-100vw h-full bg-project z-50 flex flex-col justify-center gap-4 p-2"}>
+               <div className={"flex flex-row justify-center gap-6 z-50"}>
+                   <img className={"rounded-full w-10 h-10 cursor-pointer"} alt={"Linkldn"} src={"./images/icons/linkedin.png"} onClick={() => sendToUrl("https://www.linkedin.com/in/jaydenrice/")}></img>
+                   <img className={"rounded-full w-10 h-10 cursor-pointer"} alt={"Instagram"} src={"./images/icons/instagram.png"} onClick={() => sendToUrl("https://www.instagram.com/jjrice_17")}></img>
+                   <img className={"rounded-full w-10 h-10 cursor-pointer"} alt={"Youtube"} src={"./images/icons/youtube.png"} onClick={() => sendToUrl("https://www.youtube.com/@prodijay7058")}></img>
+                   <a href="mailto:ricejjayden@gmail.com">
+                    <img className={"rounded-full w-10 h-10 cursor-pointer"} alt={"Email"} src={"./images/icons/email.png"}></img>
+                   </a>
+               </div>
+               <p className={"capitalize"}>©JAYDEN RICE</p>
+           </footer>
 
           </div>
       </div>
