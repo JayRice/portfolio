@@ -1,5 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
 
 
 type Props = {

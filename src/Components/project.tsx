@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+
+import {  useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
-import {Wrench, Settings, Clock, ArrowBigLeft, ArrowBigRight} from "lucide-react"
+import {Wrench, Settings, Clock} from "lucide-react"
 
 type Props = {
-    imgSources: [string],
+    imgSources: string[],
     name: string,
     liveURL: string,
     learnUrl: string,

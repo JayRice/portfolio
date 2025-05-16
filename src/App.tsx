@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {ChevronDown} from 'lucide-react'
 
 import './App.css'
@@ -22,8 +21,8 @@ function App() {
   return (
       <div className={"bg-background"}>
 
-          <DotAnimation id="fixed-canvas" mode={"uninteractive"} className={"absolute z-[-1] w-full h-full"} count={50}  velocity={.5}  />
-          <DotAnimation  mode={"interactive"} className={"z-10 bg-background w-full h-full"} count={400}  velocity={.1} stopDistance={125} mouseFadeDistanceParticle={1500} mouseFadeDistanceLine={1200}  />
+          <DotAnimation id="fixed-canvas" mode={"uninteractive"} className={"absolute z-[-1] w-full h-full"}    />
+          <DotAnimation  mode={"interactive"} className={"z-10 bg-background w-full h-full"}  stopDistance={125} mouseFadeDistanceParticle={1500} mouseFadeDistanceLine={1200}  />
 
         <div className={"flex gap-6 flex-col relative w-[100vw] h-[100vh] justify-center items-center z-20 "}>
           <h1 className={"text-6xl animate-fade-left max-sm:text-3xl "}>Hello, I'm <span className={"text-prim "}>Jayden</span></h1>

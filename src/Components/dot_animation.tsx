@@ -32,7 +32,7 @@ export default function ParticleCanvas({
     const particlesRef = useRef<Particle[]>([]);
     const mousePosRef = useRef<[number, number]>([window.innerWidth / 2, window.innerHeight / 2]);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-    const drawIntervalRef = useRef<NodeJS.Timer | null>(null);
+    const drawIntervalRef = useRef<number | null>(null)
     const initialAnimationTimeoutRef = useRef(800);
     const [, forceUpdate] = useState(0);
 
@@ -186,12 +186,14 @@ export default function ParticleCanvas({
         window.addEventListener('resize', resize);
         window.addEventListener('mousemove', handleMouseMove);
 
-        drawIntervalRef.current = setInterval(draw, 10);
+        drawIntervalRef.current = window.setInterval(draw, 10);
 
         return () => {
             window.removeEventListener('resize', resize);
             window.removeEventListener('mousemove', handleMouseMove);
-            if (drawIntervalRef.current) clearInterval(drawIntervalRef.current);
+            if (drawIntervalRef.current) {
+                clearInterval(drawIntervalRef.current);
+            }
         };
     }, [mode]);
 
