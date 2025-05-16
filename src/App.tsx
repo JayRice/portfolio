@@ -33,9 +33,9 @@ function App() {
             }}> View my work <ChevronDown className={"w-8 h-8"}/> </button>
         </div>
           <nav className={"max-lg:justify-center max-sm:p-10 max-sm:text-xl sticky top-0 bg-navbar shadow-2xl text-2xl items-center gap-10 bg-background-400  flex flex-row justify-end bg-prim-500 h-20 z-30 min-lg:pr-40"}>
-              <a onClick={() => {scrollToSection("about")}} className={"hover:text-prim"}>About me</a>
-              <a onClick={() => {scrollToSection("projects")}} className={"hover:text-prim"}>Projects</a>
-              <a onClick={() => {scrollToSection("contact")}}  className={"hover:text-prim"}>Contact me</a>
+              <a onClick={() => {scrollToSection("about")}} className={"hover:text-prim cursor-pointer"}>About me</a>
+              <a onClick={() => {scrollToSection("projects")}} className={"hover:text-prim cursor-pointer"}>Projects</a>
+              <a onClick={() => {scrollToSection("contact")}}  className={"hover:text-prim cursor-pointer"}>Contact me</a>
 
           </nav>
 
@@ -115,7 +115,7 @@ function App() {
 
           </div>
 
-          <div id="contact" className={"relative w-full h-full inline-block flex-row justify-center text-center  mt-20   "}>
+          <div id="contact" className={"relative w-full h-full inline-block flex-row justify-center text-center  mt-[10%]   "}>
               <h1 className={"relative text-6xl border-t-2 border-t-sec inline"}>  Contact me </h1>
               <div className={"flex justify-center w-100vw h-full "}>
                   <Form className={"max-lg:w-full "}></Form>
