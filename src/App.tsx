@@ -25,8 +25,8 @@ function App() {
           <DotAnimation  mode={"interactive"} className={"z-10 bg-background w-full h-full"}  stopDistance={125} mouseFadeDistanceParticle={1500} mouseFadeDistanceLine={1200}  />
 
         <div className={"flex gap-6 flex-col relative w-[100vw] h-[100vh] justify-center items-center z-20 "}>
-          <h1 className={"text-6xl animate-fade-left max-sm:text-3xl "}>Hello, I'm <span className={"text-prim "}>Jayden</span></h1>
-            <h2 className={"text-6xl animate-fade-right animate-delay-[1s]  max-sm:text-2xl"}>An AI Enchanced web developer.</h2>
+          <h1 className={"text-6xl animate-fade-left max-sm:text-3xl "}>Hello, I'm <span className={"text-prim"}>Jayden</span></h1>
+            <h2 className={"text-6xl animate-fade-right animate-delay-[1s] max-sm:text-2xl"}>An AI Enchanced web developer.</h2>
             <button className={"flex cursor-pointer items-center gap-2 border-2  max-sm:text-xl animate-fade-up border-prim p-4 text-2xl mt-4 hover:bg-prim animate-delay-[2s]"} onClick={() => {
                 scrollToSection("about")
             }}> View my work <ChevronDown className={"w-8 h-8"}/> </button>
@@ -47,9 +47,9 @@ function App() {
 
                   <div className={"flex flex-row justify-center gap-10 h-[100%] w-[100%] max-md:flex-col max-md:items-center"}>
 
-                      <div className={"flex justify-around items-center flex-col-reverse basis-1/2 max-w-1/2 grow-0 shrink-0 h-[100%] w-[100%] text-left"}>
+                      <div className={"flex justify-around items-center flex-col-reverse basis-1/2 max-w-1/2 max-sm:max-w-full grow-0 shrink-0 h-[100%] w-[100%] text-left"}>
 
-                          <p className={"relative basis-1/2 shrink-0 grow-0 lg:text-3xl md:text-xl text-xl  font-light bottom-[3%] "}>
+                          <p className={"relative basis-1/2 shrink-0 grow-0 lg:text-3xl md:text-xl  text-xl  font-light bottom-[3%] "}>
                               I've been coding since I was 10, and the ability to bring ideas to life through code has always inspired me. Now at 18, I'm fully committed to Web and App development, building fast, responsive experiences from the ground up.
                               I use modern AI coding tools like Bolt.new to accelerate my workflow and explore creative solutions faster—while making sure I understand and refine every line. Join me on the journey to craft the next generation of web experiences.
                           </p>
@@ -107,7 +107,7 @@ function App() {
               <h1 className={"relative text-6xl border-t-2 border-t-sec inline"}>  Projects </h1>
 
               <div className={"w-full h-full"}>
-                  <Project name={"PwnPrep"} imgSources={["./images/projects/pwnprep1", "./images/projects/pwnprep2", "./images/projects/pwnprep3"]} learnUrl={""} liveURL={""} status={"development"} className={"mt-20"}/>
+                  <Project name={"PwnPrep"} imgSources={["./images/projects/pwnprep1", "./images/projects/pwnprep2", "./images/projects/pwnprep3"]} learnUrl={"https://github.com/jayrice/pwnprep"} liveURL={"https://pwnprep.com"} status={"development"} className={"mt-20"}/>
                   <Project name={"DevMesa"} imgSources={["./images/projects/devmesa1", "./images/projects/devmesa2"]} learnUrl={""} liveURL={""} status={"hold"} className={"mt-20"}/>
 
               </div>
