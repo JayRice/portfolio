@@ -3,9 +3,9 @@ import {ChevronDown} from 'lucide-react'
 import './App.css'
 import DotAnimation from './Components/dot_animation.tsx'
 import SkillBlock from "./Components/skill_block.tsx";
-import Project from "./Components/project.tsx";
 import Form from "./Components/form.tsx";
 import './index.css'
+import ProjectsSection from "./Components/projects/ProjectSection.tsx";
 
 function App() {
 
@@ -106,11 +106,7 @@ function App() {
           <div id="projects" className={"relative w-full h-full inline-block flex-row justify-center mt-4 text-center p-20 "}>
               <h1 className={"relative text-6xl border-t-2 border-t-sec inline"}>  Projects </h1>
 
-              <div className={"w-full h-full"}>
-                  <Project name={"PwnPrep"} imgSources={["./images/projects/pwnprep1", "./images/projects/pwnprep2", "./images/projects/pwnprep3"]} learnUrl={"https://github.com/jayrice/pwnprep"} liveURL={"https://pwnprep.com"} status={"development"} className={"mt-20"}/>
-                  <Project name={"DevMesa"} imgSources={["./images/projects/devmesa1", "./images/projects/devmesa2"]} learnUrl={""} liveURL={""} status={"hold"} className={"mt-20"}/>
-
-              </div>
+              <ProjectsSection/>
 
           </div>
 
