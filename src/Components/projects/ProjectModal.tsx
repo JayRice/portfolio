@@ -80,34 +80,35 @@ export default function ProjectModal({
                             <TabsContent value="screens" className="mt-4">
                                 {images.length ? (
                                     <div className="space-y-3">
-                                        <div className="overflow-hidden rounded-xl border">
+                                        <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
                                             <img
                                                 src={"/images/projects/" + images[imgIndex]}
                                                 alt={`${project.name} screenshot ${imgIndex + 1}`}
-                                                className="h-[340px] w-full object-cover"
+                                                className="w-full max-h-[500px] object-contain"
                                             />
                                         </div>
 
-                                        <div className="flex gap-2 overflow-x-auto pb-2">
-                                            {images.map((src, i) => (
-                                                <button
-                                                    key={src}
-                                                    onClick={() => setImgIndex(i)}
-                                                    className={[
-                                                        "h-16 w-28 shrink-0 overflow-hidden rounded-lg border",
-                                                        i === imgIndex ? "ring-2 ring-primary" : "opacity-80 hover:opacity-100",
-                                                    ].join(" ")}
-                                                >
-                                                    <img src={"/images/projects/"+src} className="h-full w-full object-cover" />
-                                                </button>
-                                            ))}
-                                        </div>
+                                        {images.length > 1 && (
+                                            <div className="flex gap-2 overflow-x-auto pb-2">
+                                                {images.map((src, i) => (
+                                                    <button
+                                                        key={src}
+                                                        onClick={() => setImgIndex(i)}
+                                                        className={[
+                                                            "h-16 w-28 shrink-0 overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950",
+                                                            i === imgIndex ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100",
+                                                        ].join(" ")}
+                                                    >
+                                                        <img src={"/images/projects/" + src} className="h-full w-full object-contain" />
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 ) : (
                                     <p className="text-muted-foreground">No screenshots yet.</p>
                                 )}
                             </TabsContent>
-
                             <TabsContent value="videos" className="mt-4">
                                 {project.videoUrls && project.videoUrls.length > 0 ? (
                                     <div className="space-y-6">
