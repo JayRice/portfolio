@@ -18,7 +18,22 @@ type Props = {
     stopDistance?: number;
     mouseFadeDistanceParticle?: number;
     mouseFadeDistanceLine?: number;
+
 };
+
+
+// function cssVarToHsl(varName: string, fallback = "0 0% 0%") {
+//     // shadcn vars are like: --foreground: 222.2 84% 4.9%;
+//     const raw = getComputedStyle(document.documentElement)
+//         .getPropertyValue(varName)
+//         .trim();
+//
+//     const value = raw || fallback;
+//     return `hsl(${value})`;
+// }
+
+
+
 
 export default function ParticleCanvas({
                                            id,

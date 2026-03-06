@@ -1,13 +1,11 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { PROJECTS } from "../../data/projects.ts";
-import type {ProjectData} from "../../data/projects.ts"
+import {type ProjectData, PROJECTS} from "../../data/projects.ts";
 
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal.tsx";
 
-export default function ProjectsSection() {
-    const [active, setActive] = useState<ProjectData | null>(null);
+export default function ProjectsSection({active, setActive}: {active: ProjectData|null, setActive: React.Dispatch<React.SetStateAction<ProjectData|null>>}) {
 
     const sorted = useMemo(() => {
         // featured first, then rest
@@ -24,7 +22,7 @@ export default function ProjectsSection() {
             </div>
 
             <motion.div
-                className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-6  md:grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 items-center justify-center"
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}

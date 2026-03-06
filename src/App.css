@@ -19,6 +19,16 @@ body{
   font-weight: lighter;
 
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
 #fixed-canvas{
   position: fixed;
   z-index: 0;
@@ -30,7 +40,7 @@ body{
   --color-background: #171515;
   --color-navbar: #1e1b1b;
 
-  --color-project: #333030;
+  --color-project: #171616;
   --color-project-light: #3d3a3a;
 }
 @layer components {
