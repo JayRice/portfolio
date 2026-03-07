@@ -35,19 +35,19 @@ export default function ProjectCard({
             className={isPhone ? "flex justify-center mx-auto w-full max-w-[320px]" : "w-full"}
         >
             {isPhone ? (
-                <div className="w-full rounded-[2.25rem] border bg-project border-white/10 p-3 shadow-2xl backdrop-blur">
+                <div className="w-full transition-all duration-300 hover:-translate-y-1 rounded-[2.25rem] border bg-project border-white/10 p-3 shadow-2xl backdrop-blur">
                     <div className="mx-auto mb-3 h-5 w-24 rounded-full bg-muted/60" />
 
                     <Card
                         onClick={onOpen}
-                        className="group cursor-pointer overflow-hidden rounded-[1.75rem] bg-background/60 backdrop-blur border border-white/10 transition-transform duration-300 active:scale-[0.99]"
+                        className="group cursor-pointer overflow-hidden rounded-[1.75rem] bg-background/60 backdrop-blur border border-white/10 transition-transform  duration-300 active:scale-[0.99]"
                     >
-                        <div className="relative h-80  w-full overflow-hidden">
+                        <div className="relative aspect-[9/16] w-full overflow-hidden">
                             {cover ? (
                                 <img
                                     src={"/images/projects/" + cover}
                                     alt={project.name}
-                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    className="h-full w-full object-fit transition-transform duration-500 group-hover:scale-105"
                                     loading="lazy"
                                 />
                             ) : (

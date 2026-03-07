@@ -7,10 +7,11 @@ import Form from "./Components/form.tsx";
 import './index.css'
 import ProjectsSection from "./Components/projects/ProjectSection.tsx";
 import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import type {ProjectData} from "./data/projects.ts";
 import {PROJECTS} from "./data/projects.ts";
 import { motion } from "framer-motion"
+import {LightningOverlay} from "./Components/LightningOverlay.tsx";
 
 
 const BIRTHDAY = [9,5,2006];
@@ -35,6 +36,8 @@ function App() {
     const { projectSlug } = useParams()
 
     const [active, setActive] = useState<ProjectData | null>(null);
+    const skillsRef = useRef<HTMLDivElement | null>(null)
+
 
 
     useEffect(() => {
@@ -66,11 +69,31 @@ function App() {
                 scrollToSection("about")
             }}> View my work <ChevronDown className={"w-8 h-8"}/> </button>
         </div>
-          <nav className={"max-lg:justify-center max-sm:p-10 max-sm:text-xl sticky top-0 bg-navbar shadow-2xl text-2xl items-center gap-10 bg-background-400  flex flex-row justify-end bg-prim-500 h-20 z-30 min-lg:pr-40"}>
-              <a onClick={() => {scrollToSection("about")}} className={"hover:text-prim cursor-pointer"}>About me</a>
-              <a onClick={() => {scrollToSection("projects")}} className={"hover:text-prim cursor-pointer"}>Projects</a>
-              <a onClick={() => {scrollToSection("contact")}}  className={"hover:text-prim cursor-pointer"}>Contact me</a>
+          <nav className="sticky top-0 z-30 backdrop-blur-md bg-background/70 border-b border-white/10">
+              <div className="max-w-6xl mx-auto flex items-center justify-center md:justify-end gap-10 h-20 px-6 text-lg font-medium">
 
+                  <button
+                      onClick={() => scrollToSection("about")}
+                      className="nav-link cursor-pointer"
+                  >
+                      About
+                  </button>
+
+                  <button
+                      onClick={() => scrollToSection("projects")}
+                      className="nav-link  cursor-pointer"
+                  >
+                      Projects
+                  </button>
+
+                  <button
+                      onClick={() => scrollToSection("contact")}
+                      className="nav-link  cursor-pointer"
+                  >
+                      Contact
+                  </button>
+
+              </div>
           </nav>
 
           <div className={"z-30  w-full h-full"}>
@@ -117,6 +140,9 @@ function App() {
 
                       </div>
 
+                      <div ref={skillsRef} className="relative flex justify-center">
+                          <LightningOverlay containerRef={skillsRef} />
+
                       <motion.div
                           className="flex justify-center items-center flex-row basis-1/2 max-w-1/2 grow-0 shrink-0 p-[10%]"
                           initial={{ opacity: 0, x: 30 }}
@@ -127,6 +153,8 @@ function App() {
                               <SkillBlock imgSource={"/images/typescript.png"} className={"hover:scale-125"} name={"Typescript"}/>
                               <SkillBlock imgSource={"/images/react.png"} className={"hover:scale-125"} name={"React"}/>
                               <SkillBlock imgSource={"/images/firebase.png"} className={"hover:scale-125"} name={"Firebase"}/>
+                              <SkillBlock imgSource={"/images/python.png"} className={"hover:scale-125"} name={"Python"}/>
+
                           </div>
                           <div className={"flex flex-col"}>
                               <SkillBlock imgSource={"/images/html.png"} className={"hover:scale-125"}  name={"HTML"}/>
@@ -136,10 +164,13 @@ function App() {
                           </div>
                           <div className={"flex flex-col"}>
                               <SkillBlock imgSource={"/images/mongodb.png"} className={"hover:scale-125"} name={"MongoDB"}/>
+                              <SkillBlock imgSource={"/images/supabase.png"} className={"hover:scale-125"} name={"Supabase"}/>
+
                               <SkillBlock bordered imgSource={"/images/nextjs.png"} className={"hover:scale-125"} name={"Next.js"}/>
                               <SkillBlock imgSource={"/images/nodejs.png"} className={"hover:scale-125"} name={"Node.js"}/>
                           </div>
                       </motion.div>
+                          </div>
 
 
 

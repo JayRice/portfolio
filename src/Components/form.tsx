@@ -16,6 +16,6 @@ export default function Form({className=""}: Props) {
             <input  placeholder="Name" name="Name" className={"p-2 w-full h-[50px] border-2 border-project-light bg-project"}/>
             <input placeholder="Email" name={"Email"} type={"email"} className={"p-2 w-full h-[50px] border-2 border-project-light bg-project"}/>
             <textarea placeholder={"Message"} name={"Message"} className={"p-2 border-2 border-project-light min-h-[20vh] bg-project"}></textarea>
-            <button type={"submit"} className={"hover:brightness-90 bg-project h-10 border-1  rounded-md cursor-pointer"} >Submit</button>
+            <button type={"submit"} className={"hover:brightness-90 bg-project h-10 border-4 border-project-light  rounded-md cursor-pointer"} >Submit</button>
         </form> )
 }

@@ -86,7 +86,7 @@ export const PROJECTS: ProjectData[] = [
             "History.love is a personal relationship assistant that helps users capture memories, track relationship moments, and generate meaningful insights with AI.",
         status: "development",
         tech: ["React", "TypeScript", "TailwindCSS", "shadcn/ui", "Supabase"],
-        images: ["history-love/timeline.png", "history-love/insights.png", "history-love/prompts.png"],
+        images: ["history-love/sc1.png", "history-love/sc2.png","history-love/sc3.png","history-love/sc4.png","history-love/sc5.png","history-love/sc6.png",],
         learnUrl: "https://github.com/jayrice/history.love",
         featured: false,
     },
@@ -98,7 +98,7 @@ export const PROJECTS: ProjectData[] = [
         description:
             "A reusable, conversion-focused website system built for local service businesses that can dynamically switch branding, colors, services, reviews, and CTAs from a single config.",
         status: "live",
-        tech: ["React", "TypeScript", "TailwindCSS", "shadcn/ui"],
+        tech: ["React", "TypeScript", "TailwindCSS", "shadcn/ui", "Next.js"],
         images: ["service-site/home.png", "service-site/services.png", "service-site/reviews.png"],
         liveUrl: "https://demo.jaydenrice.dev/demo/crowe-heating-air-15vna4",
         learnUrl: "https://github.com/jayrice/hvac-demo",

@@ -51,6 +51,9 @@ export default function ParticleCanvas({
     const initialAnimationTimeoutRef = useRef(800);
     const [, forceUpdate] = useState(0);
 
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+
     const primaryColor: Color = { r: 116, g: 171, b: 255 };
     const secondaryColor: Color = { r: 255, g: 80, b: 120 };
 
@@ -59,7 +62,7 @@ export default function ParticleCanvas({
         const height = window.innerHeight;
         const particles: Particle[] = [];
 
-        const total = Math.floor((width * height) / 9000);
+        const total = Math.floor((width * height) / 9000) * 2;
 
         for (let i = 0; i < total; i++) {
             const color = Math.random() < 0.5 ? 'blue' : 'pink';
@@ -181,7 +184,7 @@ export default function ParticleCanvas({
                     if (dist > stopDistance) continue;
 
                     const mouseDist = Math.hypot(mouseX - p1.x, mouseY - p1.y) - initialAnimationTimeoutRef.current;
-                    const lineAlpha = mouseDist < mouseFadeDistanceLine ? 1 - mouseDist / mouseFadeDistanceLine : 0;
+                    const lineAlpha = isMobile ? 1 :  mouseDist < mouseFadeDistanceLine ? 1 - mouseDist / mouseFadeDistanceLine : 0;
 
                     const stroke = `rgba(${primaryColor.r},${primaryColor.g},${primaryColor.b},${lineAlpha - 0.5})`;
 

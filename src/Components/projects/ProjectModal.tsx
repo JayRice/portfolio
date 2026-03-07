@@ -34,7 +34,7 @@ export default function ProjectModal({
 
     return (
         <Dialog open={!!project} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="max-w-3xl rounded-2xl bg-project">
+            <DialogContent className="w-[calc(100vw-2rem)] max-w-3xl rounded-2xl bg-project overflow-x-hidden">
                 {project && (
                     <>
                         <DialogHeader>
@@ -42,7 +42,7 @@ export default function ProjectModal({
                             <p className="text-sm text-muted-foreground">{project.tagline}</p>
                         </DialogHeader>
 
-                        <Tabs value={tab} onValueChange={(value) => setTab(value)} defaultValue="overview" className="mt-2">
+                        <Tabs value={tab} onValueChange={(value) => setTab(value)} defaultValue="overview" className="mt-2 min-w-0">
                             <TabsList >
                                 <TabsTrigger className={`cursor-pointer  ${tab == "overview" && "border-[1px] border-white"} `} value="overview">Overview</TabsTrigger>
                                 <TabsTrigger className={`cursor-pointer ${tab == "screens" && "border-[1px] border-white"}`} value="screens">Screens</TabsTrigger>
@@ -80,11 +80,11 @@ export default function ProjectModal({
                             <TabsContent value="screens" className="mt-4">
                                 {images.length ? (
                                     <div className="space-y-3">
-                                        <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+                                        <div className="flex w-full justify-center items-center overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
                                             <img
                                                 src={"/images/projects/" + images[imgIndex]}
                                                 alt={`${project.name} screenshot ${imgIndex + 1}`}
-                                                className="w-full max-h-[500px] object-contain"
+                                                className="max-h-[500px] w-auto object-contain flex-shrink-0 mx-auto"
                                             />
                                         </div>
 
