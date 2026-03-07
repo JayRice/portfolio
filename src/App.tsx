@@ -12,6 +12,7 @@ import type {ProjectData} from "./data/projects.ts";
 import {PROJECTS} from "./data/projects.ts";
 import { motion } from "framer-motion"
 import {LightningOverlay} from "./Components/LightningOverlay.tsx";
+import { useLocation } from "react-router-dom";
 
 
 const BIRTHDAY = [9,5,2006];
@@ -39,6 +40,9 @@ function App() {
     const skillsRef = useRef<HTMLDivElement | null>(null)
 
 
+    const location = useLocation();
+
+
 
     useEffect(() => {
         if (!projectSlug) return;
@@ -46,6 +50,16 @@ function App() {
         const found = PROJECTS.find((p) => p.slug === projectSlug) ?? null;
         setActive(found)
     }, [projectSlug]);
+
+    useEffect(() => {
+
+        if (location.pathname.includes("projects")){
+            document.getElementById("projects")?.scrollIntoView({
+                behavior: "smooth",
+            });
+        }
+
+    }, [location]);
 
     function sendToUrl(url: string){
         window.location.href = url;

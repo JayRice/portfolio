@@ -23,6 +23,10 @@ export const router = createBrowserRouter([
         element: <WrappedApp />,
     },
     {
+        path: "/projects",
+        element: <WrappedApp />,
+    },
+    {
         path: "*",
         element: <NotFound />,
     },
