@@ -54,8 +54,12 @@ export default function ParticleCanvas({
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
 
+
+
+
     const primaryColor: Color = { r: 116, g: 171, b: 255 };
     const secondaryColor: Color = { r: 255, g: 80, b: 120 };
+
 
     const resetDotAnimation = () => {
         const width = window.innerWidth;
@@ -77,7 +81,8 @@ export default function ParticleCanvas({
             });
         }
 
-        if (mode === 'interactive') {
+        if (mode === 'interactive'  && !(isMobile) ) {
+
             particles.push({
                 id: -1,
                 x: 0,
@@ -158,6 +163,8 @@ export default function ParticleCanvas({
 
                 particle.x += particle.vx;
                 particle.y += particle.vy;
+
+                if (isMobile && particle.id == -1) {return}
 
                 if (particle.x < 0) particle.x = canvas.width;
                 if (particle.x > canvas.width) particle.x = 0;
