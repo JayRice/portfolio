@@ -1,3 +1,5 @@
+import type {ProjectData} from "../data/projects.ts";
+
 export function createComingSoonProject(id: string): ProjectData {
     return {
         id,
