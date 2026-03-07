@@ -114,7 +114,7 @@ function App() {
 
 
 
-              <div id="about" className={"relative w-full h-full inline-block flex-row justify-center text-center px-2 mt-10  "}>
+              <div id="about" className={"relative w-full h-full inline-block flex-row justify-center text-center px-2 mt-10 md:p-20  "}>
                   <h1 className={"relative text-6xl border-t-2 border-t-sec inline"}> About me </h1>
 
                   <div className={"flex flex-row justify-center gap-10 h-[100%] w-[100%] max-md:flex-col max-md:items-center"}>
