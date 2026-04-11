@@ -6,13 +6,13 @@ import SkillBlock from "./Components/skill_block.tsx";
 import Form from "./Components/form.tsx";
 import './index.css'
 import ProjectsSection from "./Components/projects/ProjectSection.tsx";
-import {useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import {useEffect, useRef, useState} from "react";
 import type {ProjectData} from "./data/projects.ts";
 import {PROJECTS} from "./data/projects.ts";
 import { motion } from "framer-motion"
 import {LightningOverlay} from "./Components/LightningOverlay.tsx";
-import { useLocation } from "react-router-dom";
+import { getScholarsVisited } from "./lib/scholarsVisited.ts";
 
 
 const BIRTHDAY = [9,5,2006];
@@ -37,10 +37,15 @@ function App() {
     const { projectSlug } = useParams()
 
     const [active, setActive] = useState<ProjectData | null>(null);
+    const [hasVisitedScholars, setHasVisitedScholars] = useState(false);
     const skillsRef = useRef<HTMLDivElement | null>(null)
 
 
     const location = useLocation();
+
+    useEffect(() => {
+        setHasVisitedScholars(getScholarsVisited());
+    }, [location.pathname]);
 
 
 
@@ -101,6 +106,13 @@ function App() {
                   </button>
 
                   <button
+                      onClick={() => scrollToSection("resume")}
+                      className="nav-link cursor-pointer"
+                  >
+                      Resume
+                  </button>
+
+                  <button
                       onClick={() => scrollToSection("contact")}
                       className="nav-link  cursor-pointer"
                   >
@@ -109,6 +121,15 @@ function App() {
 
               </div>
           </nav>
+
+          {hasVisitedScholars ? (
+              <Link
+                  to="/scholars"
+                  className="fixed right-4 top-24 z-[35] border-2 border-prim bg-background/85 px-4 py-2 text-sm font-medium backdrop-blur-md transition-colors hover:bg-prim md:right-8 md:top-28 md:px-5 md:text-base"
+              >
+                  Scholars
+              </Link>
+          ) : null}
 
           <div className={"z-30  w-full h-full"}>
 
@@ -123,7 +144,7 @@ function App() {
 
                           <p className={"relative basis-1/2 shrink-0 grow-0 lg:text-3xl md:text-xl md:text-left text-center  text-xl  font-light bottom-[3%] "}>
                               I've been coding since I was 10, and the ability to bring ideas to life through code has always inspired me. Now at {get_age()}, I'm fully committed to Web and App development, building fast, responsive experiences from the ground up.
-                              I use modern AI coding tools like Bolt.new and v0 to accelerate my workflow and explore creative solutions faster, while making sure I understand and refine every line. Join me on the journey to craft the next generation of app experiences.
+                              I use modern AI coding tools like Cursor and v0 to accelerate my workflow and explore creative solutions faster, while making sure I understand and refine every line. Join me on the journey to craft the next generation of app experiences.
                           </p>
                           {/*<svg*/}
                           {/*    xmlns="http://www.w3.org/2000/svg"*/}
@@ -203,6 +224,28 @@ function App() {
 
           <div id="projects" className={"relative w-full h-full inline-block flex-row justify-center mt-4 text-center p-0 sm:p-10 md:p-14 lg:pd-20 "}>
               <ProjectsSection active={active} setActive={setActive}/>
+          </div>
+
+          <div id="resume" className={"relative w-full h-full inline-block flex-row justify-center text-center px-6 sm:px-10 md:px-14 mt-16 md:mt-24 pb-4"}>
+              <h1 className={"relative text-6xl border-t-2 border-t-sec inline"}>Resume</h1>
+              <p className={"mx-auto mt-4 max-w-lg text-base font-light text-white/70 sm:text-lg"}>
+                  Download a PDF of my experience, skills, and recent work.
+              </p>
+              <div className={"mx-auto mt-10 flex max-w-md justify-center px-2"}>
+                  <div className={"w-full rounded-xl border border-white/10 bg-background/60 p-8 shadow-2xl backdrop-blur sm:p-10"}>
+                      <p className={"mb-6 text-left text-sm font-light text-white/80 sm:text-base"}>
+                          Looking for a concise overview? The PDF opens in a new tab.
+                      </p>
+                      <a
+                          href={"/pdfs/resume.pdf"}
+                          target={"_blank"}
+                          rel={"noopener noreferrer"}
+                          className={"inline-flex w-full cursor-pointer items-center justify-center gap-2 border-2 border-prim px-5 py-3 text-lg font-medium transition-colors hover:bg-prim sm:text-xl"}
+                      >
+                          View resume
+                      </a>
+                  </div>
+              </div>
           </div>
 
           <div id="contact" className={"relative w-full h-full inline-block flex-row justify-center text-center  mt-[10%]    "}>
